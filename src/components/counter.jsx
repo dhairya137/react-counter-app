@@ -5,14 +5,14 @@ class Counter extends Component {
     count: 0,
   };
 
-  constructor() {
-    super();
-    this.handleIncrement = this.handleIncrement.bind(this); //Binding the method with bind method
-  }
+  // constructor() {
+  //   super();
+  //   this.handleIncrement = this.handleIncrement.bind(this); //Binding the method with bind method
+  // }
 
-  handleIncrement() {
+  handleIncrement = () => {
     console.log("Increment Clicked", this);
-  }
+  };
 
   render() {
     return (
