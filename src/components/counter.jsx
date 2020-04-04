@@ -2,18 +2,21 @@ import React, { Component } from "react";
 
 class Counter extends Component {
   state = {
-    count: 0
+    count: 0,
   };
 
   styles = {
     fontSize: 15,
-    fontWeight: "bold"
+    fontWeight: "bold",
   };
 
   render() {
+    let classes = "badge m-2 badge-";
+    classes += this.state.count === 0 ? "warning" : "primary";
+
     return (
       <div>
-        <span style={this.styles} className="badge badge-primary m-2">
+        <span style={this.styles} className={classes}>
           {this.formatCount()}
         </span>
         <button style={{ fontSize: 20 }} className="btn btn-secondary btn-sm">
