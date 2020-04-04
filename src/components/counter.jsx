@@ -3,28 +3,27 @@ import React, { Component } from "react";
 class Counter extends Component {
   state = {
     count: 0,
-    tags: ["tag1", "tag2", "tag3"],
   };
 
-  styles = {
-    fontSize: 15,
-    fontWeight: "bold",
-  };
+  constructor() {
+    super();
+    this.handleIncrement = this.handleIncrement.bind(this); //Binding the method with bind method
+  }
+
+  handleIncrement() {
+    console.log("Increment Clicked", this);
+  }
 
   render() {
     return (
       <div>
-        <span style={this.styles} className={this.getBadgeClasses()}>
-          {this.formatCount()}
-        </span>
-        <button style={{ fontSize: 20 }} className="btn btn-secondary btn-sm">
+        <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
+        <button
+          onClick={this.handleIncrement}
+          className="btn btn-secondary btn-sm"
+        >
           Increment
         </button>
-        <ul>
-          {this.state.tags.map((tag) => (
-            <li key={tag}> {tag} </li>
-          ))}
-        </ul>
       </div>
     );
   }
